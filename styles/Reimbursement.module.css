@@ -1,0 +1,405 @@
+/* Container and Layout */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+/* Header Styles */
+.header {
+  background-color: #111111;
+  border-bottom: 1px solid #333333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  color: #ffffff;
+}
+
+.menuButton:hover {
+  background-color: #222222;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.formContainer {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333333;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #4a9eff;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* File Upload Styles */
+.dropZone {
+  position: relative;
+  border: 2px dashed #444444;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background-color: #1a1a1a;
+  transition: border-color 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+
+.dropZone:hover {
+  border-color: #4a9eff;
+  background-color: #222222;
+}
+
+.fileInput {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.dropZoneLabel {
+  cursor: pointer;
+  display: block;
+}
+
+.dropZoneContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #cccccc;
+}
+
+.dropZoneContent span:first-child {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.dropZoneContent span:last-child {
+  font-size: 0.9rem;
+  color: #888888;
+}
+
+.fileList {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #2a2a2a;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.removeFile {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.removeFile:hover {
+  background: #cc0000;
+}
+
+/* Checkbox Styles */
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.checkbox {
+  margin-top: 0.25rem;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.checkboxText {
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.5;
+}
+
+/* Privacy and Consent Text */
+.privacyText,
+.consentText {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+/* Submit Button */
+.submitButton {
+  background-color: #4a9eff;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #3a8eef;
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  background-color: #444444;
+  cursor: not-allowed;
+  transform: none;
+  color: #888888;
+}
+
+/* Message Styles */
+.message {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  background-color: #1a4a2a;
+  color: #66ff99;
+  border: 1px solid #2a5a3a;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #111111;
+  border-top: 1px solid #333333;
+  padding: 2rem;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+.footerSection h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.footerSection p {
+  margin: 0.25rem 0;
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.footerLinks a {
+  color: #4a9eff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+  color: #66b3ff;
+  text-decoration: underline;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem;
+  }
+  
+  .main {
+    padding: 1rem;
+  }
+  
+  .formContainer {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .dropZone {
+    padding: 1.5rem;
+  }
+  
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footerLinks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .checkboxLabel {
+    font-size: 0.85rem;
+  }
+  
+  .submitButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.75rem;
+  }
+  
+  .main {
+    padding: 0.75rem;
+  }
+  
+  .formContainer {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .dropZone {
+    padding: 1rem;
+  }
+  
+  .dropZoneContent span:first-child {
+    font-size: 1rem;
+  }
+  
+  .footerLinks {
+    grid-template-columns: 1fr;
+  }
+  
+  .checkboxText {
+    font-size: 0.8rem;
+  }
+  
+  .fileItem {
+    font-size: 0.8rem;
+  }
+}
