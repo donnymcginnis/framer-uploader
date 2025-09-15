@@ -148,14 +148,16 @@ export default async function handler(req, res) {
   try {
     // Parse the form data
     const form = formidable({
-      uploadDir: './tmp',
+      uploadDir: '/tmp', // Use /tmp for Vercel serverless functions
       keepExtensions: true,
       maxFileSize: 20 * 1024 * 1024, // 20MB per file
       maxTotalFileSize: 50 * 1024 * 1024, // 50MB total
       maxFiles: 10, // Maximum 10 files
     })
 
+    console.log('Starting form parsing...')
     const [fields, files] = await form.parse(req)
+    console.log('Form parsed successfully:', { fields: Object.keys(fields), files: Object.keys(files) })
 
     // Extract form data
     const formData = {
@@ -168,13 +170,22 @@ export default async function handler(req, res) {
       agreeToTerms: Array.isArray(fields.agreeToTerms) ? fields.agreeToTerms[0] === 'true' : fields.agreeToTerms === 'true',
     }
 
-    // Validate required fields
-    if (!formData.name || !formData.email || !formData.amount || !formData.description) {
-      return res.status(400).json({ message: 'Missing required fields' })
-    }
+    console.log('Extracted form data:', formData)
 
-    if (!formData.agreeToTerms) {
-      return res.status(400).json({ message: 'You must agree to the terms to submit' })
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.amount || !formData.description || !formData.agreeToTerms) {
+      console.log('Validation failed:', {
+        name: !!formData.name,
+        email: !!formData.email,
+        amount: !!formData.amount,
+        description: !!formData.description,
+        agreeToTerms: !!formData.agreeToTerms
+      })
+      return res.status(400).json({ 
+        message: 'Missing required fields',
+        required: ['name', 'email', 'amount', 'description', 'agreeToTerms'],
+        received: formData
+      })
     }
 
     // Upload files to Google Drive (if any)
